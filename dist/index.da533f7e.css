@@ -241,10 +241,85 @@ html, button, input, select, textarea {
   width: 100%;
 }
 
+main .popup {
+  width: 100%;
+  height: 100%;
+  background: #162c4e99;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+main .popup .popup-wrapper {
+  width: 320px;
+  height: 370px;
+  background: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10% auto;
+  padding: 20px;
+  display: flex;
+  position: relative;
+}
+
+main .popup .popup-wrapper img {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+main .popup .popup-wrapper h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #162c4e;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 104%;
+}
+
+main .popup .popup-wrapper p {
+  text-align: center;
+  color: #000c;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+main .popup .popup-wrapper button {
+  width: 200px;
+  height: 60px;
+  color: #fff;
+  background: #162c4e;
+  border: 0;
+  border-radius: 40px;
+  margin: 0 auto;
+  position: relative;
+}
+
 main .intro .wrapper {
   max-width: 840px;
   width: 100%;
+  flex-direction: column;
   margin: 0 auto;
+  padding-left: 25px;
+  padding-right: 25px;
+  display: flex;
+}
+
+@media (width <= 768px) {
+  main .intro .wrapper {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
 }
 
 main .intro .wrapper .title {
@@ -267,6 +342,12 @@ main .intro .wrapper .title h1 {
   line-height: 104%;
 }
 
+@media (width <= 768px) {
+  main .intro .wrapper .title h1 {
+    font-size: 36px;
+  }
+}
+
 main .intro .wrapper .title p {
   color: #000c;
   text-align: center;
@@ -276,6 +357,12 @@ main .intro .wrapper .title p {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+}
+
+@media (width <= 768px) {
+  main .intro .wrapper .title p {
+    font-size: 16px;
+  }
 }
 
 main .intro .timer {
@@ -291,6 +378,12 @@ main .intro .timer span {
   font-style: normal;
   font-weight: 600;
   line-height: 100%;
+}
+
+@media (width <= 768px) {
+  main .intro .timer span {
+    font-size: 36px;
+  }
 }
 
 main .intro .timer .days, main .intro .timer .hours, main .intro .timer .minutes, main .intro .timer .seconds {
@@ -310,17 +403,36 @@ main .intro .timer .days div, main .intro .timer .hours div, main .intro .timer 
   line-height: 100%;
 }
 
+@media (width <= 768px) {
+  main .intro .timer .days div, main .intro .timer .hours div, main .intro .timer .minutes div, main .intro .timer .seconds div {
+    font-size: 36px;
+  }
+}
+
 main .intro .timer .days p, main .intro .timer .hours p, main .intro .timer .minutes p, main .intro .timer .seconds p {
   width: 132px;
   height: 54px;
   color: #fff;
   text-align: center;
-  background: url("timer_p_bg.5a1e590d.svg") no-repeat;
+  background: url("timer_p_bg.5a1e590d.svg") center / 100% no-repeat;
   padding-top: 20px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
+}
+
+@media (width <= 768px) {
+  main .intro .timer .days p, main .intro .timer .hours p, main .intro .timer .minutes p, main .intro .timer .seconds p {
+    width: 82px;
+    font-size: 12px;
+  }
+}
+
+@media (width <= 420px) {
+  main .intro .timer .days p, main .intro .timer .hours p, main .intro .timer .minutes p, main .intro .timer .seconds p {
+    width: 62px;
+  }
 }
 
 main .intro .link {
@@ -331,12 +443,24 @@ main .intro .link {
   display: flex;
 }
 
+@media (width <= 768px) {
+  main .intro .link {
+    margin-bottom: 169px;
+  }
+}
+
 main .intro .link p {
   margin-bottom: 12px;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+}
+
+@media (width <= 768px) {
+  main .intro .link p {
+    font-size: 16px;
+  }
 }
 
 main .intro .link button {
@@ -347,6 +471,11 @@ main .intro .link button {
   border: 0;
   border-radius: 40px;
   position: relative;
+}
+
+main .intro .link button a {
+  color: #fff;
+  text-decoration: none;
 }
 
 main .intro .link button:after {
@@ -365,7 +494,7 @@ main .intro .footer {
   display: flex;
 }
 
-main .intro .footer div {
+main .intro .footer form {
   width: 440px;
   height: 59px;
   background: #fff;
@@ -377,14 +506,27 @@ main .intro .footer div {
   box-shadow: 0 0 50px #0006;
 }
 
-main .intro .footer div input {
+@media (width <= 500px) {
+  main .intro .footer form {
+    width: 250px;
+  }
+}
+
+main .intro .footer form .form {
   color: #000;
   width: 85%;
   background: #fff;
   border: 0;
 }
 
-main .intro .footer div button {
+@media (width <= 500px) {
+  main .intro .footer form .form {
+    width: 76%;
+    font-size: 12px;
+  }
+}
+
+main .intro .footer form .submit {
   width: 43px;
   height: 43px;
   background: red;
@@ -393,7 +535,7 @@ main .intro .footer div button {
   position: relative;
 }
 
-main .intro .footer div button:after {
+main .intro .footer form .submit:after {
   content: url("arrow_right.cd0a1ee3.svg");
   position: absolute;
   top: 12px;

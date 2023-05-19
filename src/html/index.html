@@ -20,7 +20,9 @@
         </div>
         <div class="wrapper">
             <div class="logo">
-                <img src="../assets/svg/logo.svg" alt="logo">
+                <a href="./index.html">
+                    <img src="../assets/svg/logo.svg" alt="logo">
+                </a>
             </div>
         </div>
     </header>
@@ -35,36 +37,48 @@
                 <div class="timer">
                     <div class="days">
                         <div id="days"></div>
-                        <p>Days</p>
+                        <p id="daystext"></p>
                     </div>
                     <span>:</span>
                     <div class="hours">
                         <div id="hours"></div>
-                        <p>Hours</p>
+                        <p id="hourstext"></p>
                     </div>
                     <span>:</span>
                     <div class="minutes">
                         <div id="minutes"></div>
-                        <p>Minutes</p>
+                        <p id="minutestext"></p>
                     </div>
                     <span>:</span>
                     <div class="seconds">
                         <div id="seconds"></div>
-                        <p>Seconds</p>
+                        <p id="secondstext"></p>
                     </div>
                 </div>
                 <div class="link">
                     <p>Check our event page when you wait:</p>
-                    <button>Go to the event</button>
+                    <button>
+                        <a href="https://indiabikeweek.in/" target="_blank">Go to the event</a>
+                    </button>
                 </div>
             </div>
             <footer class="footer">
-                <div>
-                    <input type="email" placeholder="Enter your Email and get notifed">
-                    <button></button>
-                </div>
+                <form id="subscribeForm">
+                    <input class="form" type="email" name="email" id="email" required
+                        placeholder="Enter your Email and get notifed">
+                    <button value="" class="submit" type="submit"></button>
+                </form>
             </footer>
         </section>
+        <div id="popup" class="popup">
+            <div class="popup-wrapper">
+                <img onclick="document.getElementById('popup').style.display = 'none';" src="../assets/svg/cross.svg"
+                    alt="cross">
+                <h2 id="title_message"></h2>
+                <p id="message"></p>
+                <button onclick="document.getElementById('popup').style.display = 'none';">Сlose</button>
+            </div>
+        </div>
     </main>
     <script type="module" src="../js/main.js"></script>
 </body>
