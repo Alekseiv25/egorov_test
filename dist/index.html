@@ -27,6 +27,14 @@
         </div>
     </header>
     <main class="main">
+        <div id="popup" class="popup">
+            <div class="popup-wrapper">
+                <img onclick="document.getElementById('popup').style.display = 'none';" src="/cross.632fbc95.svg" alt="cross">
+                <h2 id="title_message"></h2>
+                <p id="message"></p>
+                <button onclick="document.getElementById('popup').style.display = 'none';">Сlose</button>
+            </div>
+        </div>
         <section class="intro">
             <div class="wrapper">
                 <div class="title">
@@ -69,14 +77,171 @@
                 </form>
             </footer>
         </section>
-        <div id="popup" class="popup">
-            <div class="popup-wrapper">
-                <img onclick="document.getElementById('popup').style.display = 'none';" src="/cross.632fbc95.svg" alt="cross">
-                <h2 id="title_message"></h2>
-                <p id="message"></p>
-                <button onclick="document.getElementById('popup').style.display = 'none';">Сlose</button>
+        <section class="events">
+            <div class="wrapper">
+                <h2 class="title">all events</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-button el1">
+                            <span class="accordion-title">Hawaiian Party</span>
+                            <span class="accordion-number">01</span>
+                        </button>
+                        <div class="accordion-content content-el1">
+                            <div class="content-container expanded">
+                                <h2>
+                                    01
+                                </h2>
+                                <div>
+                                    <p>Hawaiian Party</p>
+                                    <span>13.02.2023</span>
+                                    <button class="more-info">More Information</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Добавьте больше секций здесь... -->
+
+                    <div class="accordion-item ">
+                        <button class="accordion-button active el2">
+                            <span class="accordion-title">Mafia Party</span>
+                            <span class="accordion-number">02</span>
+                        </button>
+                        <div class="accordion-content content-el2 expanded">
+                            <div class="content-container">
+                                <h2>
+                                    02
+                                </h2>
+                                <div>
+                                    <p>Mafia Party</p>
+                                    <span>13.02.2023</span>
+                                    <button class="more-info">More Information</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button el3">
+                            <span class="accordion-title">Party</span>
+                            <span class="accordion-number">03</span>
+                        </button>
+                        <div class="accordion-content content-el3">
+                            <div class="content-container ">
+                                <h2>
+                                    03
+                                </h2>
+                                <div>
+                                    <p>Party</p>
+                                    <span>14.02.2023</span>
+                                    <button class="more-info">More Information</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button el4">
+                            <span class="accordion-title">Party on the beach</span>
+                            <span class="accordion-number">04</span>
+                        </button>
+                        <div class="accordion-content content-el4">
+                            <div class="content-container ">
+                                <h2>
+                                    04
+                                </h2>
+                                <div>
+                                    <p>Party on the beach</p>
+                                    <span>14.02.2023</span>
+                                    <button class="more-info">More Information</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button el5">
+                            <span class="accordion-title">Home Security</span>
+                            <span class="accordion-number">05</span>
+                        </button>
+                        <div class="accordion-content content-el5">
+                            <div class="content-container">
+                                <h2>
+                                    05
+                                </h2>
+                                <div>
+                                    <p>Home Security</p>
+                                    <span>15.02.2023</span>
+                                    <button class="more-info">More Information</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button el6">
+                            <span class="accordion-title"> Network Design & Implementation</span>
+                            <span class="accordion-number">06</span>
+                        </button>
+                        <div class="accordion-content content-el6">
+                            <div class="content-container ">
+                                <h2>
+                                    06
+                                </h2>
+                                <div>
+                                    <p>Network Design & Implementation</p>
+                                    <span>15.02.2023</span>
+                                    <button class="more-info">More Information</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button el7">
+                            <span class="accordion-title"> System Design & Engineering</span>
+                            <span class="accordion-number">07</span>
+                        </button>
+                        <div class="accordion-content content-el7">
+                            <div class="content-container ">
+                                <h2>
+                                    07
+                                </h2>
+                                <div>
+                                    <p>System Design & Engineering</p>
+                                    <span>16.02.2023</span>
+                                    <button class="more-info">More Information</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button el8">
+                            <span class="accordion-title"> Client Care Plans</span>
+                            <span class="accordion-number">08</span>
+                        </button>
+                        <div class="accordion-content content-el8">
+                            <div class="content-container ">
+                                <h2>
+                                    08
+                                </h2>
+                                <div>
+                                    <p>Client Care Plans</p>
+                                    <span>18.02.2023</span>
+                                    <button class="more-info">More Information</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            
+            
+            
+            
+        </section>
+
+
     </main>
     <script src="/index.18dbc454.js" defer=""></script>
 </body>

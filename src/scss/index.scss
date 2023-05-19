@@ -57,6 +57,7 @@ main {
         top: 0;
         left: 0;
         background: rgba(22, 44, 78, 0.6);
+        z-index: 999;
 
         .popup-wrapper {
             position: relative;
@@ -340,6 +341,220 @@ main {
                         position: absolute;
                         top: 12px;
                         right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .events {
+        padding-top: 110px;
+        height: 100vh;
+        padding-left: 25px;
+        padding-right: 25px;
+
+        .wrapper {
+            max-width: 1705px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+
+            .title {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 72px;
+                line-height: 104%;
+                text-align: center;
+                text-transform: uppercase;
+                color: $primary-color;
+                opacity: 0.39;
+                margin-bottom: 40px;
+            }
+
+            .accordion {
+                display: flex;
+                height: 680px;
+                margin: 0 auto;
+                margin-bottom: 100px;
+
+                .accordion-item {
+                    display: flex;
+
+
+                    .accordion-button {
+
+                        font-family: 'SF Pro Display';
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 40px;
+                        line-height: 100%;
+                        text-align: right;
+                        letter-spacing: -0.03em;
+                        background: $primary-color;
+                        color: #FFFFFF;
+                        border: 4px solid #FFFFFF;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: end;
+                        padding-bottom: 20px;
+
+
+                        .accordion-title {
+                            transform: rotate(-180deg);
+                            writing-mode: vertical-rl;
+                            margin-bottom: 40px;
+                        }
+
+                    }
+
+                    .el1 {
+                        background: linear-gradient(180deg, rgba(22, 44, 78, 0) 0%, #162C4E 100%), url(../assets/images/hawaii.png) no-repeat center;
+                    }
+
+                    .el2 {
+                        background: linear-gradient(180deg, rgba(22, 44, 78, 0) 0%, #162C4E 100%), url(../assets/images/mafia.jpg) no-repeat center;
+                    }
+
+                    .el3 {
+                        background: linear-gradient(180deg, rgba(22, 44, 78, 0) 0%, #162C4E 100%), url(../assets/images/party.jpg) no-repeat center;
+                    }
+
+                    .el4 {
+                        background: linear-gradient(180deg, rgba(22, 44, 78, 0) 0%, #162C4E 100%), url(../assets/images/party_on_the_beach.jpg) no-repeat center;
+                        background-size: cover;
+                    }
+
+                    .el5 {
+                        background: linear-gradient(180deg, rgba(22, 44, 78, 0) 0%, #162C4E 100%), url(../assets/images/home_securiry.jpg) no-repeat center;
+                    }
+
+                    .el6 {
+                        background: linear-gradient(180deg, rgba(22, 44, 78, 0) 0%, #162C4E 100%), url(../assets/images/network.jpg) no-repeat center;
+                    }
+
+                    .el7 {
+                        background: linear-gradient(180deg, rgba(22, 44, 78, 0) 0%, #162C4E 100%), url(../assets/images/system_design.jpg) no-repeat center;
+                        background-size: cover;
+                    }
+
+                    .el8 {
+                        background: linear-gradient(180deg, rgba(22, 44, 78, 0) 0%, #162C4E 100%), url(../assets/images/client_care.jpg) no-repeat center;
+                        background-size: cover;
+                    }
+
+                    .accordion-button:active,
+                    .accordion-button.active {
+                        background: $primary-color;
+                    }
+
+                    .content-el1 {
+                        background: url(../assets/images/hawaii.png);
+                    }
+
+                    .content-el2 {
+                        background: url(../assets/images/mafia.jpg);
+                    }
+
+                    .content-el3 {
+                        background: url(../assets/images/party.jpg);
+                    }
+
+                    .content-el4 {
+                        background: url(../assets/images/party_on_the_beach.jpg) no-repeat;
+                        background-size: cover;
+                    }
+
+                    .content-el5 {
+                        background: url(../assets/images/home_securiry.jpg);
+                    }
+
+                    .content-el6 {
+                        background: url(../assets/images/network.jpg) no-repeat;
+                        background-size: cover;
+                    }
+
+                    .content-el7 {
+                        background: url(../assets//images/system_design.jpg) no-repeat;
+                        background-size: cover;
+                    }
+
+                    .content-el8 {
+                        background: url(../assets/images/client_care.jpg) no-repeat;
+                        background-size: cover;
+                    }
+
+                    .accordion-content {
+                        display: none;
+                        width: 995px;
+
+                        .content-container {
+                            overflow: hidden;
+                            width: 364px;
+                            backdrop-filter: blur(20px);
+                            background: rgba(18, 18, 18, 0.8);
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: end;
+                            padding: 50px;
+
+                            h2 {
+                                position: absolute;
+                                width: 405px;
+                                height: 380px;
+                                left: -143px;
+                                top: -38px;
+                                font-family: 'SF Pro Display';
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 380px;
+                                line-height: 100%;
+                                text-align: right;
+                                letter-spacing: -0.03em;
+                                color: rgba(255, 255, 255, 0.04);
+                                margin-bottom: 140px;
+                                pointer-events: none;
+                                overflow: hidden;
+                            }
+
+                            p {
+                                font-family: 'SF Pro Display';
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 24px;
+                                line-height: 120%;
+                                color: #FFFFFF;
+                                margin-bottom: 12px;
+                            }
+
+                            span {
+                                font-family: 'SF Pro Display';
+                                font-style: normal;
+                                font-weight: 400;
+                                font-size: 18px;
+                                line-height: 150%;
+                                color: rgba(255, 255, 255, 0.8);
+                            }
+
+                            button {
+                                margin-top: 25px;
+                                padding: 20px 56px;
+                                background: none;
+                                color: #fff;
+                                border: 2px solid rgba(255, 255, 255, 0.8);
+                                border-left: 7px solid rgba(255, 255, 255, 0.8);
+                            }
+                        }
+                    }
+
+                    // .accordion-button {
+                    //     filter: blur(5px);
+                    // }
+
+
+
+                    .expanded {
+                        display: block;
                     }
                 }
             }

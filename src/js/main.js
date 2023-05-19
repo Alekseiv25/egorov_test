@@ -1,3 +1,4 @@
+//timer
 let countDownDate = new Date("May 31, 2023 00:00:00").getTime();
 
 let x = setInterval(function () {
@@ -50,7 +51,7 @@ updateText();
 
 window.addEventListener('resize', updateText);
 
-
+//ajax
 document.getElementById('subscribeForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -87,4 +88,29 @@ document.getElementById('subscribeForm').addEventListener('submit', function (ev
 function validateEmail(email) {
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+}
+
+
+//accordion
+
+var acc = document.getElementsByClassName("accordion-button");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+        var activeButton = document.querySelector('.accordion-button.active');
+        if (activeButton && activeButton !== this) {
+            activeButton.classList.remove("active");
+            activeButton.parentElement.querySelector(".accordion-content").style.display = "none";
+        }
+        this.classList.toggle("active");
+        var panel = this.parentElement.querySelector(".accordion-content");
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+            panel.classList.remove("expanded");  // remove the additional class
+        } else {
+            panel.style.display = "block";
+            panel.classList.add("expanded");  // add the additional class
+        }
+    });
 }
