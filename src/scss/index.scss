@@ -1,6 +1,6 @@
-@import url(./reset.scss);
-@import url(./variables.scss);
-@import url(./fonts.scss);
+@import './reset.scss';
+@import './variables.scss';
+@import './fonts.scss';
 
 
 * {
@@ -12,12 +12,35 @@
 }
 
 .header {
+    position: relative;
+
+    .vector {
+        max-width: 30%;
+        position: absolute;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .vector2 {
+        max-width: 30%;
+        position: absolute;
+        right: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+
     .wrapper {
         display: flex;
         justify-content: center;
         padding-top: 60px;
 
         .logo {
+            margin-bottom: 93px;
+
             img {
                 width: 100%;
             }
@@ -30,8 +53,15 @@ main {
         .wrapper {
             max-width: 840px;
             width: 100%;
+            margin: 0 auto;
 
             .title {
+                margin-bottom: 32px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
                 h1 {
                     color: $primary-color;
                     font-style: normal;
@@ -41,6 +71,8 @@ main {
                     text-align: center;
                     text-transform: uppercase;
                     opacity: 0.39;
+                    margin-bottom: 8px;
+
                 }
 
                 p {
@@ -50,12 +82,26 @@ main {
                     font-size: 18px;
                     line-height: 150%;
                     text-align: center;
+                    max-width: 420px;
+                    text-align: center;
                 }
             }
         }
 
         .timer {
+            max-width: 590px;
             display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            margin-bottom: 70px;
+
+            span {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 72px;
+                line-height: 100%;
+                color: $primary-color;
+            }
 
             .days,
             .hours,
@@ -63,6 +109,11 @@ main {
             .seconds {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+                max-width: 100px;
+                width: 100%;
+
+
 
                 div {
                     color: $primary-color;
@@ -70,15 +121,98 @@ main {
                     font-weight: 600;
                     font-size: 72px;
                     line-height: 100%;
+                    margin-bottom: 3px;
                 }
 
                 p {
                     font-style: normal;
                     font-weight: 400;
                     font-size: 16px;
+                    width: 132px;
+                    height: 54px;
                     line-height: 100%;
                     color: #fff;
-                    background: $secondary-color;
+                    background: url(../assets/svg/timer_p_bg.svg);
+                    background-repeat: no-repeat;
+                    text-align: center;
+                    padding-top: 20px;
+                }
+            }
+        }
+
+        .link {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 76px;
+
+            p {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 150%;
+                margin-bottom: 12px;
+            }
+
+            button {
+                width: 240px;
+                height: 60px;
+                position: relative;
+                background: $primary-color;
+                border-radius: 40px;
+                color: #fff;
+                border: 0;
+
+                &::after {
+                    content: url(../assets/svg/arrow_right.svg);
+                    position: absolute;
+                    right: 20;
+                    top: 20;
+                }
+            }
+        }
+
+        .footer {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $primary-color;
+            min-height: 192px;
+
+            div {
+                width: 440px;
+                height: 59px;
+                background: #fff;
+                border: 0;
+                box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+                border-radius: 40px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+
+                input {
+                    color: black;
+                    background: white;
+                    border: 0;
+                    width: 85%;
+                }
+
+                button {
+                    background: red;
+                    border-radius: 50%;
+                    width: 43px;
+                    height: 43px;
+                    border: 0;
+                    position: relative;
+
+                    &::after {
+                        content: url(../assets/svg/arrow_right.svg);
+                        position: absolute;
+                        top: 12px;
+                        right: 10px;
+                    }
                 }
             }
         }
