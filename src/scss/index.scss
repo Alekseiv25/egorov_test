@@ -1,0 +1,86 @@
+@import url(./reset.scss);
+@import url(./variables.scss);
+@import url(./fonts.scss);
+
+
+* {
+    box-sizing: border-box;
+
+    body {
+        font-family: 'Poppins';
+    }
+}
+
+.header {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 60px;
+
+        .logo {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+main {
+    .intro {
+        .wrapper {
+            max-width: 840px;
+            width: 100%;
+
+            .title {
+                h1 {
+                    color: $primary-color;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 72px;
+                    line-height: 104%;
+                    text-align: center;
+                    text-transform: uppercase;
+                    opacity: 0.39;
+                }
+
+                p {
+                    color: $text-color;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 150%;
+                    text-align: center;
+                }
+            }
+        }
+
+        .timer {
+            display: flex;
+
+            .days,
+            .hours,
+            .minutes,
+            .seconds {
+                display: flex;
+                flex-direction: column;
+
+                div {
+                    color: $primary-color;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 72px;
+                    line-height: 100%;
+                }
+
+                p {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 100%;
+                    color: #fff;
+                    background: $secondary-color;
+                }
+            }
+        }
+    }
+}
