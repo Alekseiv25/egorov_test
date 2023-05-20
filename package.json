@@ -16,6 +16,7 @@
     "sass": "^1.54.9"
   },
   "dependencies": {
-    "intersection-observer": "^0.12.2"
+    "intersection-observer": "^0.12.2",
+    "jquery": "^3.7.0"
   }
 }
