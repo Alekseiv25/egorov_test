@@ -130,6 +130,11 @@ main {
             padding-left: 25px;
             padding-right: 25px;
 
+            @media (max-width: 400px) {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
             @media (max-width: 768px) {
                 margin: auto;
                 justify-content: center;
@@ -411,6 +416,10 @@ main {
             overflow: initial;
         }
 
+        @media (max-width: 400px) {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
 
         .wrapper {
             max-width: 1705px;
@@ -441,6 +450,12 @@ main {
                     flex-direction: column;
                 }
 
+                @media (max-width: 400px) {
+                    width: 90%;
+                    align-items: center;
+                    
+                }
+
                 .accordion-item {
                     display: flex;
 
@@ -448,6 +463,10 @@ main {
                         flex-direction: column-reverse;
                         width: 100%;
                         max-width: 995px;
+                    }
+
+                    @media (max-width: 400px) {
+                        width: 95%;
                     }
 
 
@@ -609,6 +628,7 @@ main {
                             }
 
                             h2 {
+                                display: none;
                                 position: absolute;
                                 width: 405px;
                                 height: 380px;
