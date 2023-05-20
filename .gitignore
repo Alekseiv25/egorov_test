@@ -9,7 +9,7 @@ lerna-debug.log*
 example1.txt
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
+dist
 # Runtime data
 pids
 *.pid
@@ -99,7 +99,7 @@ out
 
 # vuepress build output
 .vuepress/dist
-
+.dist
 # vuepress v2.x temp and cache directory
 .temp
 .cache

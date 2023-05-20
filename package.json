@@ -1,12 +1,11 @@
 {
-  "name": "clothes-shop",
+  "name": "egorov-test",
   "version": "1.0.0",
   "description": "",
   "source": "src/html/index.html",
   "scripts": {
     "start": "parcel serve --open",
-    "build": "npm run clean && parcel build --public-url ./ --no-source-maps",
-    "clean": "rimraf dist"
+    "build": "parcel build --public-url ./ --no-source-maps"
   },
   "keywords": [],
   "author": "",
