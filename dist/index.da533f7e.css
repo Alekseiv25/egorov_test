@@ -552,7 +552,6 @@ main .intro .footer form .submit:after {
 }
 
 main .events {
-  height: 100vh;
   padding-top: 110px;
   padding-left: 25px;
   padding-right: 25px;
@@ -563,6 +562,12 @@ main .events .wrapper {
   flex-direction: column;
   margin: 0 auto;
   display: flex;
+}
+
+@media (width <= 768px) {
+  main .events .wrapper {
+    height: 170vh;
+  }
 }
 
 main .events .wrapper .title {
@@ -583,8 +588,22 @@ main .events .wrapper .accordion {
   display: flex;
 }
 
+@media (width <= 1550px) {
+  main .events .wrapper .accordion {
+    flex-direction: column;
+  }
+}
+
 main .events .wrapper .accordion .accordion-item {
   display: flex;
+}
+
+@media (width <= 1550px) {
+  main .events .wrapper .accordion .accordion-item {
+    width: 100%;
+    max-width: 995px;
+    flex-direction: column-reverse;
+  }
 }
 
 main .events .wrapper .accordion .accordion-item .accordion-button {
@@ -604,10 +623,35 @@ main .events .wrapper .accordion .accordion-item .accordion-button {
   display: flex;
 }
 
+@media (width <= 768px) {
+  main .events .wrapper .accordion .accordion-item .accordion-button {
+    font-size: 24px;
+  }
+}
+
+@media (width <= 1550px) {
+  main .events .wrapper .accordion .accordion-item .accordion-button {
+    justify-content: initial;
+    flex-direction: row;
+    padding: 20px;
+  }
+}
+
 main .events .wrapper .accordion .accordion-item .accordion-button .accordion-title {
   writing-mode: vertical-rl;
+  order: 1;
   margin-bottom: 40px;
   transform: rotate(-180deg);
+}
+
+@media (width <= 1550px) {
+  main .events .wrapper .accordion .accordion-item .accordion-button .accordion-title {
+    margin: initial;
+    transform: initial;
+    writing-mode: initial;
+    order: 2;
+    margin-left: 32px;
+  }
 }
 
 main .events .wrapper .accordion .accordion-item .el1 {
@@ -704,6 +748,27 @@ main .events .wrapper .accordion .accordion-item .accordion-content {
   display: none;
 }
 
+@media (width <= 1550px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content {
+    height: 600px;
+    flex-direction: column;
+    justify-content: end;
+    display: none;
+  }
+}
+
+@media (width <= 1100px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content {
+    max-width: 650px;
+  }
+}
+
+@media (width <= 730px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content {
+    width: auto;
+  }
+}
+
 main .events .wrapper .accordion .accordion-item .accordion-content .content-container {
   width: 364px;
   -webkit-backdrop-filter: blur(20px);
@@ -715,6 +780,13 @@ main .events .wrapper .accordion .accordion-item .accordion-content .content-con
   padding: 50px;
   display: flex;
   overflow: hidden;
+}
+
+@media (width <= 1550px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content .content-container {
+    width: auto;
+    height: auto;
+  }
 }
 
 main .events .wrapper .accordion .accordion-item .accordion-content .content-container h2 {
@@ -736,7 +808,22 @@ main .events .wrapper .accordion .accordion-item .accordion-content .content-con
   overflow: hidden;
 }
 
-main .events .wrapper .accordion .accordion-item .accordion-content .content-container p {
+@media (width <= 1550px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content .content-container h2 {
+    left: initial;
+    font-size: 270px;
+    top: -30px;
+    right: -60px;
+  }
+}
+
+main .events .wrapper .accordion .accordion-item .accordion-content .content-container div {
+  max-width: 250px;
+  flex-direction: column;
+  display: flex;
+}
+
+main .events .wrapper .accordion .accordion-item .accordion-content .content-container div p {
   color: #fff;
   margin-bottom: 12px;
   font-family: SF Pro Display;
@@ -746,7 +833,13 @@ main .events .wrapper .accordion .accordion-item .accordion-content .content-con
   line-height: 120%;
 }
 
-main .events .wrapper .accordion .accordion-item .accordion-content .content-container span {
+@media (width <= 768px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content .content-container div p {
+    font-size: 18px;
+  }
+}
+
+main .events .wrapper .accordion .accordion-item .accordion-content .content-container div span {
   color: #fffc;
   font-family: SF Pro Display;
   font-size: 18px;
@@ -755,7 +848,13 @@ main .events .wrapper .accordion .accordion-item .accordion-content .content-con
   line-height: 150%;
 }
 
-main .events .wrapper .accordion .accordion-item .accordion-content .content-container button {
+@media (width <= 768px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content .content-container div span {
+    font-size: 16px;
+  }
+}
+
+main .events .wrapper .accordion .accordion-item .accordion-content .content-container div button {
   color: #fff;
   background: none;
   border: 2px solid #fffc;
@@ -764,8 +863,14 @@ main .events .wrapper .accordion .accordion-item .accordion-content .content-con
   padding: 20px 56px;
 }
 
+@media (width <= 768px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content .content-container div button {
+    font-size: 16px;
+  }
+}
+
 main .events .wrapper .accordion .accordion-item .expanded {
-  display: block;
+  display: flex;
 }
 
 /*# sourceMappingURL=index.da533f7e.css.map */

@@ -349,15 +349,18 @@ main {
 
     .events {
         padding-top: 110px;
-        height: 100vh;
         padding-left: 25px;
         padding-right: 25px;
+
 
         .wrapper {
             max-width: 1705px;
             display: flex;
             flex-direction: column;
             margin: 0 auto;
+            @media (max-width:768px) {
+                height: 170vh;
+            }
 
             .title {
                 font-style: normal;
@@ -377,8 +380,18 @@ main {
                 margin: 0 auto;
                 margin-bottom: 100px;
 
+                @media (max-width: 1550px) {
+                    flex-direction: column;
+                }
+
                 .accordion-item {
                     display: flex;
+
+                    @media (max-width: 1550px) {
+                        flex-direction: column-reverse;
+                        width: 100%;
+                        max-width: 995px;
+                    }
 
 
                     .accordion-button {
@@ -397,12 +410,30 @@ main {
                         flex-direction: column;
                         justify-content: end;
                         padding-bottom: 20px;
+                        @media (max-width: 768px) {
+                            font-size: 24px;
+                        }
+
+                        @media (max-width: 1550px) {
+                            flex-direction: row;
+                            justify-content: initial;
+                            padding: 20px;
+                        }
 
 
                         .accordion-title {
                             transform: rotate(-180deg);
                             writing-mode: vertical-rl;
                             margin-bottom: 40px;
+                            order: 1;
+
+                            @media (max-width: 1550px) {
+                                margin: initial;
+                                transform: initial;
+                                writing-mode: initial;
+                                order: 2;
+                                margin-left: 32px;
+                            }
                         }
 
                     }
@@ -487,6 +518,19 @@ main {
                         display: none;
                         width: 995px;
 
+                        @media (max-width: 1550px) {
+                            display: none;
+                            flex-direction: column;
+                            justify-content: end;
+                            height: 600px;
+                        }
+                        @media (max-width: 1100px) {
+                            max-width: 650px;
+                        }
+                        @media (max-width: 730px) {
+                            width: auto;
+                        }
+
                         .content-container {
                             overflow: hidden;
                             width: 364px;
@@ -497,6 +541,11 @@ main {
                             flex-direction: column;
                             justify-content: end;
                             padding: 50px;
+
+                            @media (max-width: 1550px) {
+                                width: auto;
+                                height: auto;
+                            }
 
                             h2 {
                                 position: absolute;
@@ -515,46 +564,62 @@ main {
                                 margin-bottom: 140px;
                                 pointer-events: none;
                                 overflow: hidden;
+
+                                @media (max-width: 1550px) {
+                                    font-size: 270px;
+                                    left: initial;
+                                    right: -60px;
+                                    top: -30px;
+
+                                }
                             }
 
-                            p {
-                                font-family: 'SF Pro Display';
-                                font-style: normal;
-                                font-weight: 600;
-                                font-size: 24px;
-                                line-height: 120%;
-                                color: #FFFFFF;
-                                margin-bottom: 12px;
-                            }
+                            div {
+                                display: flex;
+                                flex-direction: column;
+                                max-width: 250px;
+                                p {
+                                    font-family: 'SF Pro Display';
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    font-size: 24px;
+                                    line-height: 120%;
+                                    color: #FFFFFF;
+                                    margin-bottom: 12px;
+                                    @media (max-width: 768px) {
+                                        font-size: 18px;
+                                    }
+                                }
 
-                            span {
-                                font-family: 'SF Pro Display';
-                                font-style: normal;
-                                font-weight: 400;
-                                font-size: 18px;
-                                line-height: 150%;
-                                color: rgba(255, 255, 255, 0.8);
-                            }
+                                span {
+                                    font-family: 'SF Pro Display';
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 18px;
+                                    line-height: 150%;
+                                    color: rgba(255, 255, 255, 0.8);
+                                    @media (max-width: 768px) {
+                                        font-size: 16px;
+                                    }
+                                }
 
-                            button {
-                                margin-top: 25px;
-                                padding: 20px 56px;
-                                background: none;
-                                color: #fff;
-                                border: 2px solid rgba(255, 255, 255, 0.8);
-                                border-left: 7px solid rgba(255, 255, 255, 0.8);
+                                button {
+                                    margin-top: 25px;
+                                    padding: 20px 56px;
+                                    background: none;
+                                    color: #fff;
+                                    border: 2px solid rgba(255, 255, 255, 0.8);
+                                    border-left: 7px solid rgba(255, 255, 255, 0.8);
+                                    @media (max-width: 768px) {
+                                        font-size: 16px;
+                                    }
+                                }
                             }
                         }
                     }
 
-                    // .accordion-button {
-                    //     filter: blur(5px);
-                    // }
-
-
-
                     .expanded {
-                        display: block;
+                        display: flex;
                     }
                 }
             }

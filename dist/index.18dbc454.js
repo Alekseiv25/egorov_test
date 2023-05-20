@@ -649,16 +649,21 @@ for(i = 0; i < acc.length; i++)acc[i].addEventListener("click", function() {
     var activeButton = document.querySelector(".accordion-button.active");
     if (activeButton && activeButton !== this) {
         activeButton.classList.remove("active");
-        activeButton.parentElement.querySelector(".accordion-content").style.display = "none";
+        var activePanel = activeButton.parentElement.querySelector(".accordion-content");
+        activePanel.style.display = "none";
+        activePanel.classList.remove("expanded"); // remove the additional class
     }
-    this.classList.toggle("active");
     var panel = this.parentElement.querySelector(".accordion-content");
-    if (panel.style.display === "block") {
-        panel.style.display = "none";
-        panel.classList.remove("expanded"); // remove the additional class
-    } else {
-        panel.style.display = "block";
-        panel.classList.add("expanded"); // add the additional class
+    if (panel.style.display === "flex" && activeButton) ;
+    else {
+        this.classList.toggle("active");
+        if (panel.style.display === "flex") {
+            panel.style.display = "none";
+            panel.classList.remove("expanded"); // remove the additional class
+        } else {
+            panel.style.display = "flex";
+            panel.classList.add("expanded"); // add the additional class
+        }
     }
 });
 
