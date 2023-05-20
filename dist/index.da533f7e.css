@@ -541,6 +541,12 @@ main .intro .footer .events-btn {
   right: 120px;
 }
 
+@media (width <= 1000px) {
+  main .intro .footer .events-btn {
+    display: none;
+  }
+}
+
 main .intro .footer .events-btn:after {
   content: url("arrow_down.870c1641.svg");
   transition: all .3s;
@@ -612,6 +618,12 @@ main .events {
   overflow: hidden;
 }
 
+@media (width <= 1550px) {
+  main .events {
+    overflow: initial;
+  }
+}
+
 main .events .wrapper {
   max-width: 1705px;
   flex-direction: column;
@@ -671,8 +683,6 @@ main .events .wrapper .accordion .accordion-item .accordion-button {
   font-weight: 500;
   line-height: 100%;
   display: flex;
-  position: sticky;
-  right: 0;
 }
 
 @media (width <= 768px) {
@@ -795,20 +805,17 @@ main .events .wrapper .accordion .accordion-item .content-el8 {
 }
 
 main .events .wrapper .accordion .accordion-item .accordion-content {
-  width: 995px;
-  height: 0;
   width: 0;
   transition: all 1.5s;
   overflow: hidden;
-  transform: translateX(100%);
 }
 
 @media (width <= 1550px) {
   main .events .wrapper .accordion .accordion-item .accordion-content {
-    height: 600px;
+    height: 0;
+    width: 995px;
     flex-direction: column;
     justify-content: end;
-    display: none;
   }
 }
 
@@ -918,6 +925,12 @@ main .events .wrapper .accordion .accordion-item .accordion-content .content-con
   padding: 20px 56px;
 }
 
+main .events .wrapper .accordion .accordion-item .accordion-content .content-container div button a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
 @media (width <= 768px) {
   main .events .wrapper .accordion .accordion-item .accordion-content .content-container div button {
     font-size: 16px;
@@ -928,9 +941,15 @@ main .events .wrapper .accordion .accordion-item .accordion-content.expanded {
   opacity: 1;
   height: auto;
   max-height: 1000px;
-  width: 900px;
+  width: 995px;
   display: flex;
-  transform: translateX(0);
+}
+
+@media (width <= 1550px) {
+  main .events .wrapper .accordion .accordion-item .accordion-content.expanded {
+    height: 600px;
+    width: auto;
+  }
 }
 
 @keyframes slideIn {

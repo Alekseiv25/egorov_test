@@ -1,4 +1,4 @@
-export const initializeForm = () => {
+export const initializeRequest = () => {
     document.getElementById('subscribeForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -8,7 +8,7 @@ export const initializeForm = () => {
             alert("Введите действительный адрес электронной почты.");
             return;
         }
-        
+
         const url = "https://run.mocky.io/v3/44d7016a-d7fd-4c2e-b29d-45a1684ef34d";
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("POST", url);

@@ -1,11 +1,11 @@
 export const initializeScroll = () => {
-    const isAtSecondSection = false;
+    let isAtSecondSection = false;
     document.getElementById("scroll-button").addEventListener("click", function () {
         if (!isAtSecondSection) {
             document.getElementById("events").scrollIntoView({ behavior: 'smooth' });
             isAtSecondSection = true;
         } else {
-            document.getElementById("header").scrollIntoView({ behavior: 'smooth' });
+            document.getElementById("section").scrollIntoView({ behavior: 'smooth' });
             isAtSecondSection = false;
         }
     });

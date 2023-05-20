@@ -560,26 +560,26 @@ function hmrAccept(bundle, id) {
 var _scrollJs = require("./scroll.js");
 var _timerJs = require("./timer.js");
 var _textUpdateJs = require("./textUpdate.js");
-var _formJs = require("./form.js");
+var _requestJs = require("./request.js");
 var _accordionJs = require("./accordion.js");
 var _animationJs = require("./animation.js");
 window.onload = ()=>{
     (0, _timerJs.initializeTimer)();
     (0, _textUpdateJs.initializeTextUpdate)();
-    (0, _formJs.initializeForm)();
+    (0, _requestJs.initializeRequest)();
     (0, _scrollJs.initializeScroll)();
     (0, _accordionJs.initializeAccordion)();
     (0, _animationJs.initializeAnimation)();
 };
 document.getElementById("scroll-button").addEventListener("click", (0, _scrollJs.rotateArrow));
 
-},{"./scroll.js":"55W1t","./timer.js":"9Okty","./textUpdate.js":"lEvF7","./form.js":"l9hyy","./accordion.js":"7H7LO","./animation.js":"3h5E3"}],"55W1t":[function(require,module,exports) {
+},{"./scroll.js":"55W1t","./timer.js":"9Okty","./textUpdate.js":"lEvF7","./accordion.js":"7H7LO","./animation.js":"3h5E3","./request.js":"3ht5B"}],"55W1t":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initializeScroll", ()=>initializeScroll);
 parcelHelpers.export(exports, "rotateArrow", ()=>rotateArrow);
 const initializeScroll = ()=>{
-    const isAtSecondSection = false;
+    let isAtSecondSection = false;
     document.getElementById("scroll-button").addEventListener("click", function() {
         if (!isAtSecondSection) {
             document.getElementById("events").scrollIntoView({
@@ -587,7 +587,7 @@ const initializeScroll = ()=>{
             });
             isAtSecondSection = true;
         } else {
-            document.getElementById("header").scrollIntoView({
+            document.getElementById("section").scrollIntoView({
                 behavior: "smooth"
             });
             isAtSecondSection = false;
@@ -694,44 +694,6 @@ const initializeTextUpdate = ()=>{
     window.addEventListener("resize", updateText);
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l9hyy":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "initializeForm", ()=>initializeForm);
-const initializeForm = ()=>{
-    document.getElementById("subscribeForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        let email = document.getElementById("email").value;
-        if (!validateEmail(email)) {
-            alert("Введите действительный адрес электронной почты.");
-            return;
-        }
-        const url = "https://run.mocky.io/v3/44d7016a-d7fd-4c2e-b29d-45a1684ef34d";
-        let xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", url);
-        xmlhttp.onreadystatechange = function() {
-            let popup = document.getElementById("popup");
-            let message = document.getElementById("message");
-            let title_message = document.getElementById("title_message");
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                title_message.innerText = "success!";
-                message.innerText = "You have successfully subscribed to the email newsletter";
-                popup.style.display = "block";
-            } else if (xmlhttp.readyState == 4) {
-                title_message.innerText = "error";
-                message.innerText = "Something went wrong. Please try again.";
-                popup.style.display = "block";
-            }
-        };
-        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xmlhttp.send("email=" + encodeURIComponent(email));
-    });
-    const validateEmail = (email)=>{
-        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    };
-};
-
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7H7LO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -765,6 +727,44 @@ const initializeAnimation = ()=>{
         const timer = document.getElementById("timer");
         const link = document.getElementById("link-container");
         intro_title, anim_logo, vec1, vec2, link, timer.animationPlayState = "running";
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ht5B":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeRequest", ()=>initializeRequest);
+const initializeRequest = ()=>{
+    document.getElementById("subscribeForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        let email = document.getElementById("email").value;
+        if (!validateEmail(email)) {
+            alert("Введите действительный адрес электронной почты.");
+            return;
+        }
+        const url = "https://run.mocky.io/v3/44d7016a-d7fd-4c2e-b29d-45a1684ef34d";
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", url);
+        xmlhttp.onreadystatechange = function() {
+            let popup = document.getElementById("popup");
+            let message = document.getElementById("message");
+            let title_message = document.getElementById("title_message");
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                title_message.innerText = "success!";
+                message.innerText = "You have successfully subscribed to the email newsletter";
+                popup.style.display = "block";
+            } else if (xmlhttp.readyState == 4) {
+                title_message.innerText = "error";
+                message.innerText = "Something went wrong. Please try again.";
+                popup.style.display = "block";
+            }
+        };
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send("email=" + encodeURIComponent(email));
+    });
+    const validateEmail = (email)=>{
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     };
 };
 

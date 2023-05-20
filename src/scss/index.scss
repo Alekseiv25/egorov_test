@@ -334,6 +334,10 @@ main {
                 background: transparent;
                 transition: 0.3s;
 
+                @media (max-width: 1000px) {
+                    display: none;
+                }
+
                 &::after {
                     content: url(../assets/svg/arrow_down.svg);
                     position: absolute;
@@ -403,6 +407,10 @@ main {
         padding-right: 25px;
         overflow: hidden;
 
+        @media (max-width: 1550px) {
+            overflow: initial;
+        }
+
 
         .wrapper {
             max-width: 1705px;
@@ -444,8 +452,6 @@ main {
 
 
                     .accordion-button {
-                        position: sticky;
-                        right: 0;
                         font-family: 'SF Pro Display';
                         font-style: normal;
                         font-weight: 500;
@@ -567,20 +573,15 @@ main {
                     }
 
                     .accordion-content {
-                        width: 995px;
-                        transform: translateX(100%);
                         transition: 1.5s;
                         overflow: hidden;
-                        height: 0;
                         width: 0;
 
-
-
                         @media (max-width: 1550px) {
-                            display: none;
                             flex-direction: column;
                             justify-content: end;
-                            height: 600px;
+                            height: 0;
+                            width: 995px;
                         }
 
                         @media (max-width: 1100px) {
@@ -674,6 +675,13 @@ main {
                                     border: 2px solid rgba(255, 255, 255, 0.8);
                                     border-left: 7px solid rgba(255, 255, 255, 0.8);
 
+                                    a {
+                                        text-decoration: none;
+                                        color: #fff;
+                                        font-size: 18px;
+
+                                    }
+
                                     @media (max-width: 768px) {
                                         font-size: 16px;
                                     }
@@ -684,11 +692,16 @@ main {
 
                     .accordion-content.expanded {
                         display: flex;
-                        transform: translateX(0);
                         opacity: 1;
                         height: auto;
                         max-height: 1000px;
-                        width: 900px;
+                        width: 995px;
+
+                        @media (max-width: 1550px) {
+                            height: 600px;
+                            width: auto;
+                        }
+
                     }
 
                 }

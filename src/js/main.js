@@ -1,14 +1,14 @@
 import { initializeScroll, rotateArrow } from './scroll.js';
 import { initializeTimer } from './timer.js';
 import { initializeTextUpdate } from './textUpdate.js';
-import { initializeForm } from './form.js';
+import { initializeRequest } from './request.js';
 import { initializeAccordion } from './accordion.js';
 import { initializeAnimation } from './animation.js';
 
 window.onload = () => {
     initializeTimer();
     initializeTextUpdate();
-    initializeForm();
+    initializeRequest();
     initializeScroll();
     initializeAccordion();
     initializeAnimation();
