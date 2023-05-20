@@ -557,116 +557,217 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"1SICI":[function(require,module,exports) {
-//timer
-let countDownDate = new Date("May 31, 2023 00:00:00").getTime();
-let x = setInterval(function() {
-    let now = new Date().getTime();
-    let distance = countDownDate - now;
-    let days = Math.floor(distance / 86400000);
-    let hours = Math.floor(distance % 86400000 / 3600000);
-    let minutes = Math.floor(distance % 3600000 / 60000);
-    let seconds = Math.floor(distance % 60000 / 1000);
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("days").innerText = "";
-        document.getElementById("hours").innerText = "";
-        document.getElementById("minutes").innerText = "";
-        document.getElementById("seconds").innerText = "";
-    }
-}, 1000);
-//Updates text
-let elementsToUpdate = [
-    {
-        element: document.getElementById("daystext"),
-        fullText: "Days",
-        shortText: "DD"
-    },
-    {
-        element: document.getElementById("hourstext"),
-        fullText: "Hours",
-        shortText: "HH"
-    },
-    {
-        element: document.getElementById("minutestext"),
-        fullText: "Minutes",
-        shortText: "MM"
-    },
-    {
-        element: document.getElementById("secondstext"),
-        fullText: "Seconds",
-        shortText: "SS"
-    }
-];
-function updateText() {
-    let windowWidth = window.innerWidth;
-    elementsToUpdate.forEach(function(elementToUpdate) {
-        if (windowWidth < 768) elementToUpdate.element.innerText = elementToUpdate.shortText;
-        else elementToUpdate.element.innerText = elementToUpdate.fullText;
-    });
-}
-updateText();
-window.addEventListener("resize", updateText);
-//ajax
-document.getElementById("subscribeForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    let email = document.getElementById("email").value;
-    if (!validateEmail(email)) {
-        alert("Введите действительный адрес электронной почты.");
-        return;
-    }
-    const url = "https://run.mocky.io/v3/44d7016a-d7fd-4c2e-b29d-45a1684ef34d";
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", url);
-    xmlhttp.onreadystatechange = function() {
-        let popup = document.getElementById("popup");
-        let message = document.getElementById("message");
-        let title_message = document.getElementById("title_message");
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            title_message.innerText = "success!";
-            message.innerText = "You have successfully subscribed to the email newsletter";
-            popup.style.display = "block";
-        } else if (xmlhttp.readyState == 4) {
-            title_message.innerText = "error";
-            message.innerText = "Something went wrong. Please try again.";
-            popup.style.display = "block";
-        }
-    };
-    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xmlhttp.send("email=" + encodeURIComponent(email));
-});
-function validateEmail(email) {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-//accordion
-var acc = document.getElementsByClassName("accordion-button");
-var i;
-for(i = 0; i < acc.length; i++)acc[i].addEventListener("click", function() {
-    var activeButton = document.querySelector(".accordion-button.active");
-    if (activeButton && activeButton !== this) {
-        activeButton.classList.remove("active");
-        var activePanel = activeButton.parentElement.querySelector(".accordion-content");
-        activePanel.style.display = "none";
-        activePanel.classList.remove("expanded"); // remove the additional class
-    }
-    var panel = this.parentElement.querySelector(".accordion-content");
-    if (panel.style.display === "flex" && activeButton) ;
-    else {
-        this.classList.toggle("active");
-        if (panel.style.display === "flex") {
-            panel.style.display = "none";
-            panel.classList.remove("expanded"); // remove the additional class
-        } else {
-            panel.style.display = "flex";
-            panel.classList.add("expanded"); // add the additional class
-        }
-    }
-});
+var _scrollJs = require("./scroll.js");
+var _timerJs = require("./timer.js");
+var _textUpdateJs = require("./textUpdate.js");
+var _formJs = require("./form.js");
+var _accordionJs = require("./accordion.js");
+var _animationJs = require("./animation.js");
+window.onload = ()=>{
+    (0, _timerJs.initializeTimer)();
+    (0, _textUpdateJs.initializeTextUpdate)();
+    (0, _formJs.initializeForm)();
+    (0, _scrollJs.initializeScroll)();
+    (0, _accordionJs.initializeAccordion)();
+    (0, _animationJs.initializeAnimation)();
+};
+document.getElementById("scroll-button").addEventListener("click", (0, _scrollJs.rotateArrow));
 
-},{}]},["9tRox","1SICI"], "1SICI", "parcelRequire8c00")
+},{"./scroll.js":"55W1t","./timer.js":"9Okty","./textUpdate.js":"lEvF7","./form.js":"l9hyy","./accordion.js":"7H7LO","./animation.js":"3h5E3"}],"55W1t":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeScroll", ()=>initializeScroll);
+parcelHelpers.export(exports, "rotateArrow", ()=>rotateArrow);
+const initializeScroll = ()=>{
+    const isAtSecondSection = false;
+    document.getElementById("scroll-button").addEventListener("click", function() {
+        if (!isAtSecondSection) {
+            document.getElementById("events").scrollIntoView({
+                behavior: "smooth"
+            });
+            isAtSecondSection = true;
+        } else {
+            document.getElementById("header").scrollIntoView({
+                behavior: "smooth"
+            });
+            isAtSecondSection = false;
+        }
+    });
+};
+const rotateArrow = ()=>{
+    const button = document.getElementById("scroll-button");
+    button.classList.toggle("underline");
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"9Okty":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeTimer", ()=>initializeTimer);
+const initializeTimer = ()=>{
+    let countDownDate = new Date("May 31, 2023 00:00:00").getTime();
+    let x = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = countDownDate - now;
+        let days = Math.floor(distance / 86400000);
+        let hours = Math.floor(distance % 86400000 / 3600000);
+        let minutes = Math.floor(distance % 3600000 / 60000);
+        let seconds = Math.floor(distance % 60000 / 1000);
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("days").innerText = "";
+            document.getElementById("hours").innerText = "";
+            document.getElementById("minutes").innerText = "";
+            document.getElementById("seconds").innerText = "";
+        }
+    }, 1000);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lEvF7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeTextUpdate", ()=>initializeTextUpdate);
+const initializeTextUpdate = ()=>{
+    let elementsToUpdate = [
+        {
+            element: document.getElementById("daystext"),
+            fullText: "Days",
+            shortText: "DD"
+        },
+        {
+            element: document.getElementById("hourstext"),
+            fullText: "Hours",
+            shortText: "HH"
+        },
+        {
+            element: document.getElementById("minutestext"),
+            fullText: "Minutes",
+            shortText: "MM"
+        },
+        {
+            element: document.getElementById("secondstext"),
+            fullText: "Seconds",
+            shortText: "SS"
+        }
+    ];
+    const updateText = ()=>{
+        let windowWidth = window.innerWidth;
+        elementsToUpdate.forEach(function(elementToUpdate) {
+            if (windowWidth < 768) elementToUpdate.element.innerText = elementToUpdate.shortText;
+            else elementToUpdate.element.innerText = elementToUpdate.fullText;
+        });
+    };
+    updateText();
+    window.addEventListener("resize", updateText);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l9hyy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeForm", ()=>initializeForm);
+const initializeForm = ()=>{
+    document.getElementById("subscribeForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        let email = document.getElementById("email").value;
+        if (!validateEmail(email)) {
+            alert("Введите действительный адрес электронной почты.");
+            return;
+        }
+        const url = "https://run.mocky.io/v3/44d7016a-d7fd-4c2e-b29d-45a1684ef34d";
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", url);
+        xmlhttp.onreadystatechange = function() {
+            let popup = document.getElementById("popup");
+            let message = document.getElementById("message");
+            let title_message = document.getElementById("title_message");
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                title_message.innerText = "success!";
+                message.innerText = "You have successfully subscribed to the email newsletter";
+                popup.style.display = "block";
+            } else if (xmlhttp.readyState == 4) {
+                title_message.innerText = "error";
+                message.innerText = "Something went wrong. Please try again.";
+                popup.style.display = "block";
+            }
+        };
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.send("email=" + encodeURIComponent(email));
+    });
+    const validateEmail = (email)=>{
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7H7LO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeAccordion", ()=>initializeAccordion);
+const initializeAccordion = ()=>{
+    const acc = document.getElementsByClassName("accordion-button");
+    let i;
+    for(i = 0; i < acc.length; i++)acc[i].addEventListener("click", function() {
+        const activeButton = document.querySelector(".accordion-button.active");
+        if (activeButton && activeButton !== this) {
+            activeButton.classList.remove("active");
+            const activePanel = activeButton.parentElement.querySelector(".accordion-content");
+            activePanel.classList.remove("expanded");
+        }
+        const panel = this.parentElement.querySelector(".accordion-content");
+        this.classList.toggle("active");
+        panel.classList.toggle("expanded");
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3h5E3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeAnimation", ()=>initializeAnimation);
+const initializeAnimation = ()=>{
+    window.onload = ()=>{
+        const anim_logo = document.getElementById("anim-logo");
+        const vec1 = document.getElementById("vec1");
+        const vec2 = document.getElementById("vec2");
+        const intro_title = document.getElementById("intro-title");
+        const timer = document.getElementById("timer");
+        const link = document.getElementById("link-container");
+        intro_title, anim_logo, vec1, vec2, link, timer.animationPlayState = "running";
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["9tRox","1SICI"], "1SICI", "parcelRequire8c00")
 
 //# sourceMappingURL=index.18dbc454.js.map

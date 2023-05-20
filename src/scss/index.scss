@@ -17,6 +17,7 @@
     .vector {
         max-width: 30%;
         position: absolute;
+        overflow: hidden;
 
         img {
             width: 100%;
@@ -26,6 +27,7 @@
     .vector2 {
         max-width: 30%;
         position: absolute;
+        overflow: hidden;
         right: 0;
 
         img {
@@ -49,6 +51,10 @@
 }
 
 main {
+    @media (min-width:1550px) {
+        margin-bottom: 100px;
+    }
+
     .popup {
         display: none;
         position: fixed;
@@ -278,6 +284,11 @@ main {
                 border-radius: 40px;
                 color: #fff;
                 border: 0;
+                transition: 0.5s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
 
                 a {
                     color: white;
@@ -300,6 +311,45 @@ main {
             align-items: center;
             background: $primary-color;
             min-height: 192px;
+            position: relative;
+
+            @media (min-width: 1550px) {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                z-index: 9999;
+            }
+
+            .events-btn {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 150%;
+                color: #fff;
+                position: absolute;
+                right: 120px;
+                cursor: pointer;
+                border: 0;
+                background: transparent;
+                transition: 0.3s;
+
+                &::after {
+                    content: url(../assets/svg/arrow_down.svg);
+                    position: absolute;
+                    top: 4px;
+                    right: -30px;
+                    transition: 0.3s;
+                }
+            }
+
+            .events-btn.underline {
+                text-decoration: underline;
+
+                &::after {
+                    transform: rotate(180deg);
+                }
+            }
 
             form {
                 width: 440px;
@@ -351,6 +401,7 @@ main {
         padding-top: 110px;
         padding-left: 25px;
         padding-right: 25px;
+        overflow: hidden;
 
 
         .wrapper {
@@ -358,9 +409,7 @@ main {
             display: flex;
             flex-direction: column;
             margin: 0 auto;
-            @media (max-width:768px) {
-                height: 170vh;
-            }
+
 
             .title {
                 font-style: normal;
@@ -395,7 +444,8 @@ main {
 
 
                     .accordion-button {
-
+                        position: sticky;
+                        right: 0;
                         font-family: 'SF Pro Display';
                         font-style: normal;
                         font-weight: 500;
@@ -410,6 +460,8 @@ main {
                         flex-direction: column;
                         justify-content: end;
                         padding-bottom: 20px;
+                        z-index: 998;
+
                         @media (max-width: 768px) {
                             font-size: 24px;
                         }
@@ -425,7 +477,7 @@ main {
                             transform: rotate(-180deg);
                             writing-mode: vertical-rl;
                             margin-bottom: 40px;
-                            order: 1;
+
 
                             @media (max-width: 1550px) {
                                 margin: initial;
@@ -515,8 +567,14 @@ main {
                     }
 
                     .accordion-content {
-                        display: none;
                         width: 995px;
+                        transform: translateX(100%);
+                        transition: 1.5s;
+                        overflow: hidden;
+                        height: 0;
+                        width: 0;
+
+
 
                         @media (max-width: 1550px) {
                             display: none;
@@ -524,9 +582,11 @@ main {
                             justify-content: end;
                             height: 600px;
                         }
+
                         @media (max-width: 1100px) {
                             max-width: 650px;
                         }
+
                         @media (max-width: 730px) {
                             width: auto;
                         }
@@ -578,6 +638,7 @@ main {
                                 display: flex;
                                 flex-direction: column;
                                 max-width: 250px;
+
                                 p {
                                     font-family: 'SF Pro Display';
                                     font-style: normal;
@@ -586,6 +647,7 @@ main {
                                     line-height: 120%;
                                     color: #FFFFFF;
                                     margin-bottom: 12px;
+
                                     @media (max-width: 768px) {
                                         font-size: 18px;
                                     }
@@ -598,6 +660,7 @@ main {
                                     font-size: 18px;
                                     line-height: 150%;
                                     color: rgba(255, 255, 255, 0.8);
+
                                     @media (max-width: 768px) {
                                         font-size: 16px;
                                     }
@@ -610,6 +673,7 @@ main {
                                     color: #fff;
                                     border: 2px solid rgba(255, 255, 255, 0.8);
                                     border-left: 7px solid rgba(255, 255, 255, 0.8);
+
                                     @media (max-width: 768px) {
                                         font-size: 16px;
                                     }
@@ -618,11 +682,91 @@ main {
                         }
                     }
 
-                    .expanded {
+                    .accordion-content.expanded {
                         display: flex;
+                        transform: translateX(0);
+                        opacity: 1;
+                        height: auto;
+                        max-height: 1000px;
+                        width: 900px;
                     }
+
                 }
             }
         }
     }
+}
+
+//anim
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDiagonalLeft {
+    0% {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDiagonalRight {
+    0% {
+        transform: translate(50%, -100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+
+
+
+#anim-logo {
+    animation: slideIn 1s forwards;
+}
+
+#vec1 {
+    animation: slideDiagonalLeft 1s forwards;
+    animation-delay: 0.3s;
+}
+
+#vec2 {
+    animation: slideDiagonalRight 1s forwards;
+    animation-delay: 0.3s;
+}
+
+#intro-title {
+    animation: slideIn 1s forwards;
+    opacity: 0;
+    animation-delay: 0.35s;
+}
+
+#timer {
+    animation: slideIn 1s forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+#link-container {
+    animation: slideIn 1s forwards;
+    opacity: 0;
+    animation-delay: 0.45s;
+    ;
 }

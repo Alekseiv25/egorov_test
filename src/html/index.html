@@ -11,15 +11,15 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="vector">
-            <img src="../assets/svg/vec1.svg" alt="vec1">
+            <img src="../assets/svg/vec1.svg" id="vec1" alt="vec1">
         </div>
         <div class="vector2">
-            <img src="../assets/svg/vec2.svg" alt="vec2">
+            <img src="../assets/svg/vec2.svg" id="vec2" alt="vec2">
         </div>
         <div class="wrapper">
-            <div class="logo">
+            <div class="logo" id="anim-logo">
                 <a href="./index.html">
                     <img src="../assets/svg/logo.svg" alt="logo">
                 </a>
@@ -36,14 +36,14 @@
                 <button onclick="document.getElementById('popup').style.display = 'none';">Сlose</button>
             </div>
         </div>
-        <section class="intro">
+        <section class="intro" id="intro">
             <div class="wrapper">
                 <div class="title">
-                    <h1>Under Construction</h1>
-                    <p>We're making lots of improvements and will be back soon</p>
+                    <h1 id="intro-title">Under Construction</h1>
+                    <p id="intro-title">We're making lots of improvements and will be back soon</p>
                 </div>
 
-                <div class="timer">
+                <div class="timer" id="timer">
                     <div class="days">
                         <div id="days"></div>
                         <p id="daystext"></p>
@@ -64,7 +64,7 @@
                         <p id="secondstext"></p>
                     </div>
                 </div>
-                <div class="link">
+                <div class="link" id="link-container">
                     <p>Check our event page when you wait:</p>
                     <button>
                         <a href="https://indiabikeweek.in/" target="_blank">Go to the event</a>
@@ -77,9 +77,10 @@
                         placeholder="Enter your Email and get notifed">
                     <button value="" class="submit" type="submit"></button>
                 </form>
+                <button class="events-btn" id="scroll-button">Other Events</button>
             </footer>
         </section>
-        <section class="events">
+        <section class="events" id="events">
             <div class="wrapper">
                 <h2 class="title">all events</h2>
                 <div class="accordion">
@@ -88,8 +89,8 @@
                             <span class="accordion-title">Hawaiian Party</span>
                             <span class="accordion-number">01</span>
                         </button>
-                        <div class="accordion-content content-el1">
-                            <div class="content-container expanded">
+                        <div class="accordion-content  content-el1">
+                            <div class="content-container ">
                                 <h2>
                                     01
                                 </h2>
@@ -101,7 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item ">
+                    <div class="accordion-item">
                         <button class="accordion-button active el2">
                             <span class="accordion-title">Mafia Party</span>
                             <span class="accordion-number">02</span>

@@ -219,6 +219,7 @@ html, button, input, select, textarea {
 .header .vector {
   max-width: 30%;
   position: absolute;
+  overflow: hidden;
 }
 
 .header .vector img {
@@ -229,6 +230,7 @@ html, button, input, select, textarea {
   max-width: 30%;
   position: absolute;
   right: 0;
+  overflow: hidden;
 }
 
 .header .vector2 img {
@@ -247,6 +249,12 @@ html, button, input, select, textarea {
 
 .header .wrapper .logo img {
   width: 100%;
+}
+
+@media (width >= 1550px) {
+  main {
+    margin-bottom: 100px;
+  }
 }
 
 main .popup {
@@ -479,7 +487,12 @@ main .intro .link button {
   background: #162c4e;
   border: 0;
   border-radius: 40px;
+  transition: all .5s;
   position: relative;
+}
+
+main .intro .link button:hover {
+  transform: scale(1.1);
 }
 
 main .intro .link button a {
@@ -501,6 +514,47 @@ main .intro .footer {
   justify-content: center;
   align-items: center;
   display: flex;
+  position: relative;
+}
+
+@media (width >= 1550px) {
+  main .intro .footer {
+    width: 100%;
+    z-index: 9999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+main .intro .footer .events-btn {
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  transition: all .3s;
+  position: absolute;
+  right: 120px;
+}
+
+main .intro .footer .events-btn:after {
+  content: url("arrow_down.870c1641.svg");
+  transition: all .3s;
+  position: absolute;
+  top: 4px;
+  right: -30px;
+}
+
+main .intro .footer .events-btn.underline {
+  text-decoration: underline;
+}
+
+main .intro .footer .events-btn.underline:after {
+  transform: rotate(180deg);
 }
 
 main .intro .footer form {
@@ -555,6 +609,7 @@ main .events {
   padding-top: 110px;
   padding-left: 25px;
   padding-right: 25px;
+  overflow: hidden;
 }
 
 main .events .wrapper {
@@ -562,12 +617,6 @@ main .events .wrapper {
   flex-direction: column;
   margin: 0 auto;
   display: flex;
-}
-
-@media (width <= 768px) {
-  main .events .wrapper {
-    height: 170vh;
-  }
 }
 
 main .events .wrapper .title {
@@ -610,6 +659,7 @@ main .events .wrapper .accordion .accordion-item .accordion-button {
   text-align: right;
   letter-spacing: -.03em;
   color: #fff;
+  z-index: 998;
   background: #162c4e;
   border: 4px solid #fff;
   flex-direction: column;
@@ -621,6 +671,8 @@ main .events .wrapper .accordion .accordion-item .accordion-button {
   font-weight: 500;
   line-height: 100%;
   display: flex;
+  position: sticky;
+  right: 0;
 }
 
 @media (width <= 768px) {
@@ -639,7 +691,6 @@ main .events .wrapper .accordion .accordion-item .accordion-button {
 
 main .events .wrapper .accordion .accordion-item .accordion-button .accordion-title {
   writing-mode: vertical-rl;
-  order: 1;
   margin-bottom: 40px;
   transform: rotate(-180deg);
 }
@@ -745,7 +796,11 @@ main .events .wrapper .accordion .accordion-item .content-el8 {
 
 main .events .wrapper .accordion .accordion-item .accordion-content {
   width: 995px;
-  display: none;
+  height: 0;
+  width: 0;
+  transition: all 1.5s;
+  overflow: hidden;
+  transform: translateX(100%);
 }
 
 @media (width <= 1550px) {
@@ -869,8 +924,76 @@ main .events .wrapper .accordion .accordion-item .accordion-content .content-con
   }
 }
 
-main .events .wrapper .accordion .accordion-item .expanded {
+main .events .wrapper .accordion .accordion-item .accordion-content.expanded {
+  opacity: 1;
+  height: auto;
+  max-height: 1000px;
+  width: 900px;
   display: flex;
+  transform: translateX(0);
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDiagonalLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes slideDiagonalRight {
+  0% {
+    opacity: 0;
+    transform: translate(50%, -100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+#anim-logo {
+  animation: 1s forwards slideIn;
+}
+
+#vec1 {
+  animation: 1s .3s forwards slideDiagonalLeft;
+}
+
+#vec2 {
+  animation: 1s .3s forwards slideDiagonalRight;
+}
+
+#intro-title {
+  opacity: 0;
+  animation: 1s .35s forwards slideIn;
+}
+
+#timer {
+  opacity: 0;
+  animation: 1s .4s forwards slideIn;
+}
+
+#link-container {
+  opacity: 0;
+  animation: 1s .45s forwards slideIn;
 }
 
 /*# sourceMappingURL=index.da533f7e.css.map */
