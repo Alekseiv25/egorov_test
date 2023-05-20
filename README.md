@@ -7,7 +7,7 @@ Runs the app in the development mode.\
 
 ## Technology stack
 
-HTML,SCSS, Vanilla JS, intersection-observer api, Parcel.
+HTML,SCSS, Vanilla JS, intersection-observer api, Jquery, Parcel.
 
 ## Look preview:
 
