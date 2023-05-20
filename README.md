@@ -1,4 +1,4 @@
-# App about under construction (test app for Egorov Agency )
+# App about Lead Advisors  (test app for Egorov Agency )
 In the project directory, you can run:
 
 ### `npm run start`
