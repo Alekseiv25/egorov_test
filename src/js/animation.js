@@ -9,3 +9,19 @@ export const initializeAnimation = () => {
         intro_title, anim_logo, vec1, vec2, link, timer.animationPlayState = 'running';
     };
 };
+
+export const initializeScrollAnimation = () => {
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            } else {
+                entry.target.classList.remove('animate');
+            }
+        });
+    });
+    document.querySelectorAll('.animate-on-scroll').forEach((item) => {
+        observer.observe(item);
+    });
+};
+

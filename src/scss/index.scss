@@ -453,7 +453,7 @@ main {
                 @media (max-width: 400px) {
                     width: 90%;
                     align-items: center;
-                    
+
                 }
 
                 .accordion-item {
@@ -768,8 +768,28 @@ main {
     }
 }
 
+@keyframes slideInOpacity {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 0.39;
+    }
+}
 
 
+.animate-on-scroll {
+    opacity: 0;
+
+}
+
+.animate {
+   animation: slideInOpacity 1s forwards;
+   opacity: 0.39;
+}
 
 #anim-logo {
     animation: slideIn 1s forwards;

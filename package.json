@@ -15,5 +15,7 @@
     "parcel": "^2.7.0",
     "sass": "^1.54.9"
   },
-  "dependencies": {}
+  "dependencies": {
+    "intersection-observer": "^0.12.2"
+  }
 }
